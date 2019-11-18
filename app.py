@@ -9,3 +9,4 @@ app = Flask(__name__)
 def weather():
 	temperature = json.dumps(W.Weather(W.city))
 	return f"{temperature}"
+

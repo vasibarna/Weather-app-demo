@@ -10,3 +10,4 @@ def Weather(city):
 		weather  = response.json()
 		temp = weather["main"]["temp"] - 273.15
 		return {f"{city}" : "%.2f" % (temp)}
+
