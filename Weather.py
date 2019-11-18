@@ -1,9 +1,12 @@
 import requests
-from secrets import app_id
 
-def Weather():
-	url = f"http://api.openweathermap.org/data/2.5/weather?q=Cluj-Napoca&appid={app_id}&units=metric"
-	response = requests.get(url)
-	weather_cluj  = response.json()
-	temp_cluj = weather_cluj["main"]["temp"]
-	return {"Cluj-Napoca" : round(temp_cluj)}
+cities = ["Cluj-Napoca", "Timisoara", "Iasi"]
+city = input("Introduceti orasul Cluj-Napoca/Timisoara/Iasi:\t")
+
+def Weather(city):
+	if city in cities: 
+		url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&APPID=e943095734d9837eb56de847ff140147"
+		response = requests.get(url)
+		weather  = response.json()
+		temp = weather["main"]["temp"] - 273.15
+		return {f"{city}" : "%.2f" % (temp)}

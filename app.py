@@ -1,22 +1,11 @@
 import json
 from flask import Flask 
-import Weather
-
+import Weather as W
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello():
-	return "Hello, World\t\t\t" * 6
-
-
-@app.route("/Weather-Cluj")
+@app.route(f"/{W.city}")
 def weather():
-	temperature = json.dumps(Weather.Weather())
+	temperature = json.dumps(W.Weather(W.city))
 	return f"{temperature}"
-
-@app.route("/Weather/my-cities/")
-def weather_multiple_cities():
-	return "Cluj : 15, New York : 10"
-
