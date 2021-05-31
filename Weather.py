@@ -1,7 +1,6 @@
 import requests
 
-cities = ["Cluj-Napoca", "Timisoara", "Iasi"]
-city = input("Introduceti orasul Cluj-Napoca/Timisoara/Iasi:\t")
+cities = ["Cluj-Napoca", "Timisoara", "Iasi", "Paris", "Berlin", "Madrid", "Barcelona", "Viena"]
 
 def Weather(city):
 	if city in cities: 

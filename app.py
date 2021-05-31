@@ -4,8 +4,7 @@ import Weather as W
 
 app = Flask(__name__)
 
-
-@app.route(f"/{W.city}")
-def weather():
-	temperature = json.dumps(W.Weather(W.city))
+@app.route("/<city>")
+def weather(city):
+	temperature = json.dumps(W.Weather(city))
 	return f"{temperature}"
